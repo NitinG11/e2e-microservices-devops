@@ -4,11 +4,9 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.Generated;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.UUID;
 
 @Table(name = "users")
@@ -20,6 +18,7 @@ import java.util.UUID;
 public class UserEntity {
 
     @Id
+    //@GeneratedValue(strategy = GenerationType.IDENTITY)
     private UUID userId;
 
     @Column(name = "first_name")
@@ -30,4 +29,7 @@ public class UserEntity {
 
     @Column(name = "email")
     private String email;
+
+    @Column(name = "national_identification")
+    private String identificationNumber;
 }

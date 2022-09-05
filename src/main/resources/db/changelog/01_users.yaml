@@ -1,0 +1,56 @@
+databaseChangeLog:
+  -  changeSet:
+       id:  1
+       author:  nitin
+       changes:
+         -  createTable:
+              tableName:  users
+              columns:
+                -  column:
+                     name:  user_id
+                     type: uuid
+                     constraints:
+                       primaryKey:  true
+                       nullable:  false
+                -  column:
+                     name:  first_name
+                     type:  varchar(50)
+                -  column:
+                     name:  last_name
+                     type:  varchar(50)
+                     constraints:
+                       nullable:  false
+                -  column:
+                     name:  email
+                     type:  varchar(50)
+                -  column:
+                     name: national_identification
+                     type:  varchar(50)
+
+
+  -  changeSet:
+       id: 2
+       author: nitin
+       changes:
+         - insert:
+             catalogName: usermanagement
+             columns:
+               - column:
+                   name: user_id
+                   value: 1sdsweqw1
+               - column:
+                   name: first_name
+                   value: address value
+               - column:
+                   name: last_name
+                   value: address value
+               - column:
+                   name: email
+                   value: address value
+               - column:
+                   name: national_identification
+                   value: address value
+
+             dbms: '!h2,  mysql'
+             schemaName: usermanagement
+             tableName: users
