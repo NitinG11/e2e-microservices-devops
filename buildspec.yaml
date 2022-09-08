@@ -12,8 +12,12 @@ phases:
       - aws --version
       - $(aws ecr get-login --region $AWS_DEFAULT_REGION --no-include-email)
       - REPOSITORY_URI=979213071888.dkr.ecr.eu-west-1.amazonaws.com/app-ng-ecr
-      - IMAGE_TAG=$(git log --format="%H" -n 1 | tail -c 7)
-      - echo $IMAGE_TAG
+      - git config --global user.name "nitin ghosh"
+      - git config --global user.email "nitin.ghosh1990@gmail.com"
+      - git remote set-url origin https://github.com/NitinG11/e2e-microservices-devops.git
+      - ID=$(git log --format="%H" -n 1 | tail -c 7)
+      - echo $ID
+      - IMAGE_TAG=1.0.0
   build:
     commands:
       - echo Build started on `date`
