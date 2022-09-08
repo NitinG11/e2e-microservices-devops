@@ -20,9 +20,9 @@ phases:
       - mvn test
       - echo Build completed on `date`
       - mvn clean install
-      - mv target/usermanagement-0.0.1-SNAPSHOT.jar app.jar
       - echo Building the Docker image...
       - docker build -t $REPOSITORY_URI:$IMAGE_TAG .
+      - mv target/usermanagement-0.0.1-SNAPSHOT.jar app.jar
   post_build:
     commands:
       - echo Build completed on `date`
