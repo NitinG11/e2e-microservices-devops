@@ -12,7 +12,8 @@ phases:
       - aws --version
       - $(aws ecr get-login --region $AWS_DEFAULT_REGION --no-include-email)
       - REPOSITORY_URI=979213071888.dkr.ecr.eu-west-1.amazonaws.com/app-ng-ecr
-      - IMAGE_TAG=$(git log --format="%H" -n 1 | head -c 7)
+      - IMAGE_TAG=$(git log --format="%H" -n 1 | tail -c 7)
+      - echo $IMAGE_TAG
   build:
     commands:
       - echo Build started on `date`
