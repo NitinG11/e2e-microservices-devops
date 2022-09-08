@@ -37,7 +37,7 @@ databaseChangeLog:
              columns:
                - column:
                    name: user_id
-                   value: 1sdsweqw1
+                   value: 04a565c0-2627-4ca8-8477-3dc355c7a742
                - column:
                    name: first_name
                    value: address value

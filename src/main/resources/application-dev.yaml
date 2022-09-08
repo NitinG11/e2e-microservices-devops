@@ -6,10 +6,10 @@ spring:
     name: user-management
 
   datasource:
-    url: jdbc:mysql://${AWS_RDS_HOSTNAME:127.0.0.1}:${AWS_RDS_PORT:3306}/${AWS_RDS_DB_NAME:usermanagement}?createDatabaseIfNotExist=true&allowPublicKeyRetrieval=true&useSSL=false
+    url: jdbc:mysql://${AWS_RDS_HOSTNAME:172.17.0.4}:${AWS_RDS_PORT:3306}/${AWS_RDS_DB_NAME:usermanagement}?allowPublicKeyRetrieval=true&useSSL=false
     #driverClassName: org.h2.Driver
-    username: root
-    password: passw0rd11
+    username: ${AWS_RDS_USERNAME:root}
+    password: ${AWS_RDS_PASSWORD:passw0rd11}
 
   jpa:
     database-platform: org.hibernate.dialect.MySQL5Dialect

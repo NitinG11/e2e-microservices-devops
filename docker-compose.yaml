@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+  mysql:
+    image: mysql:8.0.30
+    container_name: mysql_local
+    environment:
+      MYSQL_ROOT_PASSWORD: 'passw0rd11'
+      MYSQL_ROOT_USER: 'root'
+    ports:
+    - 127.0.0.1:3306:3306
+
+  usermgmt:
+    image: nitin11gh/usermgmt:latest
+    container_name: usermgmt_svc
+    environment:
+      AWS_RDS_HOSTNAME: 'mysql_local'
+      AWS_RDS_PORT: '3306'
+      AWS_RDS_DB_NAME: 'usermanagement'
+    depends_on:
+      - mysql
+    ports:
+    - 8081:8081
+    restart: on-failure
